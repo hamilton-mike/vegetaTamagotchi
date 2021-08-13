@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+body {
+    background-image: url("https://i.pinimg.com/originals/97/0e/f8/970ef83d6bc79afaaf5dd80f6978846c.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: 100%;
+    font-family: 'Cairo', sans-serif;
+    color: #f5f9f7;
+}
+.dark {
+    background: #000;
+    color: #fff;
+}
+#videoDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+    border-style: dotted;
+}
+#videoDiv iframe {
+    opacity: 0.5;
+}
+#videoDiv p {
+    background: rgba(126, 115, 204, 0.2)
+}
+#tamagotchi {
+    height: 50vh;
+    margin: 20px;
+    border: 5px solid yellow;
+    display: flex;
+    align-items:flex-end;
+    justify-content: space-around;
+}
+img {
+    border-radius: 50%;
+    margin: 35px;
+}
+.btns {
+    font-family: 'Cairo', sans-serif;
+    padding: 10px;
+    cursor: pointer;
+}
+.vegetaStats {
+    font-size: 2rem;
+    color: #1200FF;
+}
+#loser {
+    opacity: 0;
+    cursor: pointer;
+}
+#vegeta {
+    width: 50%;
+    height: 50%;
+}
+#playAgain {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+}
+#sliding{
+    height: 5%;
+    width: 50%;;
+    opacity: 0.7;
+    animation: slide 10s infinite;
+}
+@keyframes slide {
+	90% {transform: translate(-500px, 0px)}
+}

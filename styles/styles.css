@@ -11,12 +11,20 @@ body {
     background: #000;
     color: #fff;
 }
+.playground {
+    display: flex;
+    flex-wrap: wrap;
+}
+.playground > div {
+    flex: 1 1 10px;
+    height: 10%;
+}
 #videoDiv {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: flex-start;
     padding: 50px;
-    border-style: dotted;
+    width: 30%;
+    margin: 0;
 }
 #videoDiv iframe {
     opacity: 0.5;
@@ -25,23 +33,23 @@ body {
     background: rgba(126, 115, 204, 0.2)
 }
 #tamagotchi {
-    height: 50vh;
-    margin: 20px;
     border: 5px solid yellow;
-    display: flex;
-    align-items:flex-end;
-    justify-content: space-around;
+    background-color: rgba(126, 115, 204, 0.6);
 }
 img {
     border-radius: 50%;
     margin: 35px;
 }
 .btns {
+    display: flex;
+    justify-content: space-evenly;
     font-family: 'Cairo', sans-serif;
     padding: 10px;
     cursor: pointer;
 }
 .vegetaStats {
+    display: flex;
+    padding-left: 35%;
     font-size: 2rem;
     color: #1200FF;
 }
@@ -49,9 +57,12 @@ img {
     opacity: 0;
     cursor: pointer;
 }
+.displayVegeta {
+    justify-content: center;
+}
 #vegeta {
-    width: 50%;
-    height: 50%;
+    width: 8em;
+    height: 8em;
 }
 #playAgain {
     display: flex;
@@ -67,4 +78,8 @@ img {
 }
 @keyframes slide {
 	90% {transform: translate(-500px, 0px)}
+}
+.extras  * {
+    border: 1px solid red;
+    height: 10vh;
 }

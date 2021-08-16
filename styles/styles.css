@@ -48,8 +48,10 @@ img {
     cursor: pointer;
 }
 .vegetaStats {
+    border: 1px solid black;
     display: flex;
-    padding-left: 35%;
+    justify-content: center;
+    margin: 1em;
     font-size: 2rem;
     color: #1200FF;
 }
@@ -80,6 +82,16 @@ img {
 	90% {transform: translate(-500px, 0px)}
 }
 .extras  * {
-    border: 1px solid red;
     height: 10vh;
+}
+.extras iframe {
+    margin-left: -10%;
+}
+p {
+   color: white;
+
+}
+@media screen and (max-width: 1060px) {
+    .container { width:67%; }
+    /* #secondary { width:30%; margin-left:3%;}   */
 }

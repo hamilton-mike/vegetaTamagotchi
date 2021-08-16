@@ -5,7 +5,7 @@ const workoutPTag = document.querySelector('#workout');
 const agePTag = document.querySelector('#age');
 const vegeta = document.querySelector('#vegeta');
 const videoDiv = document.querySelector('#videoDiv');
-const iframe = document.querySelector('#tamagotchi iframe');
+const iframe = document.querySelector('.extras iframe');
 const speakBtn = document.querySelector('#speak');
 const attackBtn = document.querySelector('#fight');
 const exerciseBtn = document.querySelector("#exercise");
@@ -49,7 +49,7 @@ class Vegeta {
         this.isSaiyan = false;
     }
     default() {
-        hungryPTag.innerHTML = `Hunger: ${this.hunger}`;
+        hungryPTag.innerHTML = `Hunger: - ${this.hunger}`;
         happyPTag.innerHTML = `Happy: ${this.happy}`;
         workoutPTag.innerHTML = `Workout: ${this.workingOut}`;
         agePTag.innerHTML = `Age: ${this.age}`
@@ -61,7 +61,7 @@ class Vegeta {
         agePTag.innerHTML = `Age: ${this.age += 1}`
     }
     eat() {
-        hungryPTag.innerHTML = `Hunger: ${this.hunger += 1}`;
+        hungryPTag.innerHTML = `Hunger: - ${this.hunger += 1}`;
     }
     happyPlueOne() {
         happyPTag.innerHTML = `Happy: ${this.happy += 1}`;
@@ -71,7 +71,7 @@ class Vegeta {
     }
     adultVegeta() {
         time = time / 2;
-        hungryPTag.innerHTML = `Hunger: ${this.hunger = 2}`;
+        hungryPTag.innerHTML = `Hunger: - ${this.hunger = 2}`;
         happyPTag.innerHTML = `Happy: ${this.happy = 2}`;
         workoutPTag.innerHTML = `Workout: ${this.workingOut = 2}`;
         agePTag.innerHTML = `Age: ${this.age = 29}`;
@@ -124,7 +124,7 @@ function trashTalk() {
 }
 const vegetaInsult = () => {
     trashTalk();
-    hungryPTag.innerHTML = `Hunger: ${tamagotchi.hunger -= 1}`
+    hungryPTag.innerHTML = `Hunger: - ${tamagotchi.hunger -= 1}`
     happyPTag.innerHTML = `Happy: ${tamagotchi.happy -= 1}`;
     workoutPTag.innerHTML = `Workout: ${tamagotchi.workingOut -= 1}`;
     checkStatus()
@@ -183,6 +183,11 @@ function removeEvent() {
 function changeBtnStyle() {
     youLost.style.opacity = '1';
 }
+// --- Dark Theme ---
+const sleepBtn = document.querySelector('#darkMode');
+sleepBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+});
 // --- Buttons / Event Listners ---
 speakBtn.addEventListener('click', () => {
     clearInterval(intervalId)
@@ -204,11 +209,6 @@ happyBtn.addEventListener('click', happyVegeta);
 happyBtn.addEventListener('click', checkStatus);
 eatBtn.addEventListener('click', feedVegeta);
 eatBtn.addEventListener('click', checkStatus);
-// --- Dark Theme ---
-const sleepBtn = document.querySelector('#darkMode');
-sleepBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-});
 
 /* DOCS
 https://github.com/leharry/sound-play

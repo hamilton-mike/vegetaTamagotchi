@@ -23,7 +23,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* position: fixed; */
     width: 100%;
 }
 
@@ -50,34 +49,34 @@ a:hover {
 }
 
 section {
+    height: 100vh;
     padding: 3rem;
 }
 
 .btns {
-    padding: 1rem;
-    font-size: 2rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
     background-color: #A56106;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 .btns a {
     text-decoration: none;
 }
 
-#home, #about #rules, #levels, #vote {
+#home, #rules, #levels, #vote {
     font-size: 2rem;
     color: 'black';
-    height: 100vh;
 }
 
-#home, #name   {
+#home, #name {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#sliding{
+#sliding {
     animation: slide 10s infinite;
 }
 
@@ -92,6 +91,44 @@ iframe {
 
 #videoDiv iframe {
     clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+}
+
+#tamagotchi {
+    display: flex;
+    justify-content: center;
+    border: 1rem solid #A56106;
+    box-shadow: 2px 2px 2px 2px rgba(41, 85, 220, 1);
+}
+
+.rule {
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(249, 238, 84);
+}
+
+.contents {
+    color: #EFE1CD
+}
+
+.topic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2955DC;
+    color: #EFE1CD;
+    border-radius: 1rem;
+}
+
+.rule:hover {
+    background-color: #A56106;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    margin: 1rem;
+    padding: 1rem;
 }
 
 @media (max-width: 700px) {

@@ -5,11 +5,6 @@
     text-decoration: none;
     list-style: none;
     line-height: 1;
-    box-sizing: border-box;
-}
-
-html {
-    margin: 0;
 }
 
 body {
@@ -29,6 +24,19 @@ body {
     align-items: center;
     width: 100%;
 }
+#vegetagotchi {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    position: relative;
+    margin: 0;
+}
+
+.hero {
+    padding: 1em;
+}
+
 
 .container {
     margin-bottom: 1em;
@@ -57,7 +65,6 @@ a:hover {
 }
 
 section {
-    /* min-height: 100vh; */
     padding: 3rem;
 }
 
@@ -78,10 +85,6 @@ section {
     background-color: #2955DC;
 }
 
-/* #vegetagotchi {
-    border-bottom-color: black;
-} */
-
 #home, #rules, #levels, #vote {
     font-size: 2rem;
     color: 'black';
@@ -89,8 +92,13 @@ section {
 
 #home {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 1em;
+}
+
+.about {
+    width: 50%;
 }
 
 #sliding {
@@ -147,8 +155,6 @@ iframe {
     grid-gap: 1rem;
     margin: 5rem;
     padding: 1rem;
-    /* min-height: 100vh; */
-    border: 1px solid red;
 }
 
 #levels {
@@ -170,14 +176,30 @@ iframe {
     border-radius: 10px;
 }
 
-.footer {
+footer {
     display: flex;
     justify-content: center;
+    background-color: #2955DC;
+    color: #EFE1CD;
+    padding: 3rem;
 }
 
 img {
     display: block;
     max-width: 100%;
+}
+
+footer {
+    width: 100%;
+}
+
+.footer ul {
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.footer li {
+    padding: 1em;
 }
 
 @media (max-width: 700px) {
@@ -187,20 +209,20 @@ img {
         margin: 0;
     }
 
-    #rain {
-        display: flex;
-        justify-content: center;
+    #vegetagotchi {
+        display: none;
     }
 
-    #rain img {
-        border-radius: 30%;
+    .about {
+        width: 100%;
+        font-size: 1.6rem;
     }
 
     ul {
         width: 100%;
         display: flex;
         flex-direction: column;
-        font-size: 15px;
+        font-size: 1rem;
     }
 
     ul li a:hover {
@@ -210,17 +232,14 @@ img {
         text-decoration-line: none;
     }
 
-    .navbar, section, .rule {
+    .navbar, section, .rule, footer {
         flex-direction: column;
         align-items: center;
+        flex-wrap: wrap;
     }
 
-    .contents, .rule {
-        font-size: 80%;
-    }
-
-    .vegeta {
-        font-size: 2.1rem;
+    .vegeta, .contents, .rule {
+        font-size: 1.5rem;
     }
 
     #levels {

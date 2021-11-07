@@ -1,30 +1,35 @@
 // --- DOM Elements ---
 const hungryPTag = document.querySelector('#hungry');
 
-const testProgressBar = document.querySelector('#test');
-const testBtn = document.querySelector('.test-btn');
+const workoutProgressBar = document.querySelector('#workout');
+
 
 const happyPTag = document.querySelector('#happy');
-const workoutPTag = document.querySelector('#workout');
 const agePTag = document.querySelector('#age');
 const vegeta = document.querySelector('#vegeta');
 const videoDiv = document.querySelector('#videoDiv');
 const iframe = document.querySelector('.extras iframe');
+
 const speakBtn = document.querySelector('#speak');
 const attackBtn = document.querySelector('#fight');
-const exerciseBtn = document.querySelector("#exercise");
-const happyBtn = document.querySelector('#happyBtn')
 const eatBtn = document.querySelector('#eat');
-const youLost = document.querySelector('#loser');
-const palyerOne = document.querySelector('#sliding');
 
-console.log('max', testProgressBar.max);
-console.log('value', testProgressBar.value);
-console.log('spider-man');
-console.log('btn', testBtn);
-console.log('why u not work javascript');
-testBtn.addEventListener('click', testVegeta);
 
+const workoutBtn = document.querySelector('.workout-btn');
+const happyBtn = document.querySelector('.happy-btn')
+const prideBtn = document.querySelector('.pride-btn')
+
+console.log(workoutBtn);
+console.log(prideBtn);
+
+workoutBtn.addEventListener('click', trianVegeta);
+
+// console.log('max', testProgressBar.max);
+// console.log('value', testProgressBar.value);
+// console.log('btn', testBtn);
+// testBtn.addEventListener('click', testVegeta);
+
+// btn -> function -> class method
 
 // --- Images ---
 const stages = ['./img/kid_vegeta.jpeg', './img/vegeta2.jpeg', './img/vegeta_blue.jpeg', './img/sleepingVegeta.jpeg'];
@@ -54,19 +59,14 @@ let audio;
 let time = 14000;
 // --- Vegeta Class ---
 class Vegeta {
-    constructor(hunger, happy, workingOut, age, test, isSaiyan) {
+    constructor(hunger, happy, workingOut, age, isSaiyan) {
         this.hunger = hunger;
         this.happy = happy;
         this.workingOut = workingOut
         this.age = age;
-        this.test = test
         this.isSaiyan = false;
     }
     default() {
-        // hungryPTag.innerHTML = `Hunger: - ${this.hunger}`;
-        // happyPTag.innerHTML = `Happy: ${this.happy}`;
-        // workoutPTag.innerHTML = `Workout: ${this.workingOut}`;
-        // agePTag.innerHTML = `Age: ${this.age}`
         testProgressBar.value = this.test;
         vegeta.src = stages[0];
         videoDiv.innerHTML = videos["kid"];
@@ -81,14 +81,19 @@ class Vegeta {
     // happyPlueOne() {
     //     happyPTag.innerHTML = `Happy: ${this.happy += 1}`;
     // }
-    // workout() {
-    //     workoutPTag.innerHTML = `Workout: ${this.workingOut += 1}`;
-    // }
+    workout() {
+        console.log('before', this.workingOut, workoutProgressBar.value);
+        this.workingOut++;
+        workoutProgressBar.value = this.workingOut;
+        console.log('after', this.workingOut, workoutProgressBar.value);
+
+    }
     thisIsAtest() {
         // console.log(testProgressBar.value);
-        console.log('before', this.test);
-        testProgressBar.value = this.test += 1;
-        console.log('after', this);
+        console.log('before', this.test, testProgressBar.value);
+        this.test++;
+        testProgressBar.value = this.test;
+        console.log('after', this.test, testProgressBar.value);
     }
     adultVegeta() {
         time = time / 2;
@@ -113,7 +118,6 @@ class Vegeta {
     }
     gameIsOver() {
         clearInterval(intervalId)
-        palyerOne.style.opacity = '0';
         vegeta.src = stages[3];
         document.body.classList.toggle('dark');
         hungryPTag.innerHTML = "";
@@ -123,15 +127,9 @@ class Vegeta {
     }
 }
 // --- Init Tamagotchi ---
-function ratings() {
-    randomNum = Math.floor(Math.random() * 9);
-    if (randomNum === 0) {
-        randomNum += 1;
-    }
-    return randomNum;
-}
-const tamagotchi = new Vegeta(ratings(randomNum), ratings(randomNum), ratings(randomNum), ratings(randomNum), 1, 10, false);
-// tamagotchi.default();
+
+const tamagotchi = new Vegeta(1, 1, 1, 1, 10, false);
+tamagotchi.default();
 
 // --- Functions ---
 function trashTalk() {
@@ -194,16 +192,14 @@ function checkStatus() {
     }
 }
 function removeEvent() {
-    exerciseBtn.removeEventListener('click', trianVegeta);
+    workoutBtn.removeEventListener('click', trianVegeta);
     happyBtn.removeEventListener('click', happyVegeta);
     eatBtn.removeEventListener('click', feedVegeta)
-    exerciseBtn.removeEventListener('click', checkStatus);
+    workoutBtn.removeEventListener('click', checkStatus);
     happyBtn.removeEventListener('click', checkStatus);
     eatBtn.removeEventListener('click', checkStatus)
 }
-function changeBtnStyle() {
-    youLost.style.opacity = '1';
-}
+
 // --- Dark Theme ---
 const sleepBtn = document.querySelector('#darkMode');
 sleepBtn.addEventListener('click', () => {
@@ -222,14 +218,14 @@ attackBtn.addEventListener('click', () => {
         intervalId = setInterval(vegetaInsult, time);
     }, 6000)
 })
-speakBtn.addEventListener('click', princeOfAllSaiyans);
-attackBtn.addEventListener('click', bigBangAttack);
-exerciseBtn.addEventListener('click', trianVegeta);
-exerciseBtn.addEventListener('click', checkStatus);
-happyBtn.addEventListener('click', happyVegeta);
-happyBtn.addEventListener('click', checkStatus);
-eatBtn.addEventListener('click', feedVegeta);
-eatBtn.addEventListener('click', checkStatus);
+
+// speakBtn.addEventListener('click', princeOfAllSaiyans);
+// attackBtn.addEventListener('click', bigBangAttack);
+// workoutBtn.addEventListener('click', checkStatus);
+// happyBtn.addEventListener('click', happyVegeta);
+// happyBtn.addEventListener('click', checkStatus);
+// eatBtn.addEventListener('click', feedVegeta);
+// eatBtn.addEventListener('click', checkStatus);
 
 function testVegeta() {
     tamagotchi.thisIsAtest()

@@ -54,9 +54,9 @@ section {
 }
 
 .level {
-    border: 2rem double black;
-    text-align: center;
-    margin: 3em;
+    display: inline-block;
+    justify-content: center;
+    padding-left: 45%;
     font-size: 1.6rem;
 }
 
@@ -68,4 +68,49 @@ section {
 
 main {
     min-height: 100vh
+}
+
+.visual-aid {
+    pointer-events: none;
+}
+
+.yt iframe {
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+.content {
+    border: 1rem groove #A56106;
+    padding: 0 5em;
+}
+
+.btns {
+    text-align: center;
+    font-size: 2rem;
+    padding: 1em;
+}
+
+.btn {
+    justify-content: space-evenly;
+    cursor: pointer;
+    padding: 0.25em 0.5em;
+    border: .1em solid black;
+    border-radius: 1em;
+}
+
+.btn:hover {
+    background-color: #2955DC;
+    color: #EFE1CD;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: red;
+}
+
+.disabled:hover {
+    background-color: red;
+}
+
+.game-controls {
+    font-size: 1.7rem;
 }

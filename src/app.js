@@ -1,5 +1,9 @@
 // --- DOM Elements ---
 const hungryPTag = document.querySelector('#hungry');
+
+const testProgressBar = document.querySelector('#test');
+const testBtn = document.querySelector('.test-btn');
+
 const happyPTag = document.querySelector('#happy');
 const workoutPTag = document.querySelector('#workout');
 const agePTag = document.querySelector('#age');
@@ -13,6 +17,15 @@ const happyBtn = document.querySelector('#happyBtn')
 const eatBtn = document.querySelector('#eat');
 const youLost = document.querySelector('#loser');
 const palyerOne = document.querySelector('#sliding');
+
+console.log('max', testProgressBar.max);
+console.log('value', testProgressBar.value);
+console.log('spider-man');
+console.log('btn', testBtn);
+console.log('why u not work javascript');
+testBtn.addEventListener('click', testVegeta);
+
+
 // --- Images ---
 const stages = ['./img/kid_vegeta.jpeg', './img/vegeta2.jpeg', './img/vegeta_blue.jpeg', './img/sleepingVegeta.jpeg'];
 // --- Videos ---
@@ -41,33 +54,41 @@ let audio;
 let time = 14000;
 // --- Vegeta Class ---
 class Vegeta {
-    constructor(hunger, happy, workingOut, age, isSaiyan) {
+    constructor(hunger, happy, workingOut, age, test, isSaiyan) {
         this.hunger = hunger;
         this.happy = happy;
         this.workingOut = workingOut
         this.age = age;
+        this.test = test
         this.isSaiyan = false;
     }
     default() {
-        hungryPTag.innerHTML = `Hunger: - ${this.hunger}`;
-        happyPTag.innerHTML = `Happy: ${this.happy}`;
-        workoutPTag.innerHTML = `Workout: ${this.workingOut}`;
-        agePTag.innerHTML = `Age: ${this.age}`
+        // hungryPTag.innerHTML = `Hunger: - ${this.hunger}`;
+        // happyPTag.innerHTML = `Happy: ${this.happy}`;
+        // workoutPTag.innerHTML = `Workout: ${this.workingOut}`;
+        // agePTag.innerHTML = `Age: ${this.age}`
+        testProgressBar.value = this.test;
         vegeta.src = stages[0];
         videoDiv.innerHTML = videos["kid"];
         iframe.src = giphy["kid"];
     }
-    aging() {
-        agePTag.innerHTML = `Age: ${this.age += 1}`
-    }
-    eat() {
-        hungryPTag.innerHTML = `Hunger: - ${this.hunger += 1}`;
-    }
-    happyPlueOne() {
-        happyPTag.innerHTML = `Happy: ${this.happy += 1}`;
-    }
-    workout() {
-        workoutPTag.innerHTML = `Workout: ${this.workingOut += 1}`;
+    // aging() {
+    //     agePTag.innerHTML = `Age: ${this.age += 1}`
+    // }
+    // eat() {
+    //     hungryPTag.innerHTML = `Hunger: - ${this.hunger += 1}`;
+    // }
+    // happyPlueOne() {
+    //     happyPTag.innerHTML = `Happy: ${this.happy += 1}`;
+    // }
+    // workout() {
+    //     workoutPTag.innerHTML = `Workout: ${this.workingOut += 1}`;
+    // }
+    thisIsAtest() {
+        // console.log(testProgressBar.value);
+        console.log('before', this.test);
+        testProgressBar.value = this.test += 1;
+        console.log('after', this);
     }
     adultVegeta() {
         time = time / 2;
@@ -109,8 +130,8 @@ function ratings() {
     }
     return randomNum;
 }
-const tamagotchi = new Vegeta(ratings(randomNum), ratings(randomNum), ratings(randomNum), 10, false);
-tamagotchi.default();
+const tamagotchi = new Vegeta(ratings(randomNum), ratings(randomNum), ratings(randomNum), ratings(randomNum), 1, 10, false);
+// tamagotchi.default();
 
 // --- Functions ---
 function trashTalk() {
@@ -122,13 +143,13 @@ function trashTalk() {
     checkStatus();
     audio[Math.floor(Math.random() * 3)].play();
 }
-const vegetaInsult = () => {
-    trashTalk();
-    hungryPTag.innerHTML = `Hunger: - ${tamagotchi.hunger -= 1}`
-    happyPTag.innerHTML = `Happy: ${tamagotchi.happy -= 1}`;
-    workoutPTag.innerHTML = `Workout: ${tamagotchi.workingOut -= 1}`;
-    checkStatus()
-}
+// const vegetaInsult = () => {
+//     trashTalk();
+//     hungryPTag.innerHTML = `Hunger: - ${tamagotchi.hunger -= 1}`
+//     happyPTag.innerHTML = `Happy: ${tamagotchi.happy -= 1}`;
+//     workoutPTag.innerHTML = `Workout: ${tamagotchi.workingOut -= 1}`;
+//     checkStatus()
+// }
 let intervalId = setInterval(vegetaInsult, time);
 function age() {
     tamagotchi.aging();
@@ -210,9 +231,6 @@ happyBtn.addEventListener('click', checkStatus);
 eatBtn.addEventListener('click', feedVegeta);
 eatBtn.addEventListener('click', checkStatus);
 
-/* DOCS
-https://github.com/leharry/sound-play
-https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf
-https://www.codegrepper.com/code-examples/javascript/how+to+check+if+a+button+is+clicked+javascript
-https://stackoverflow.com/questions/16392486/why-marquee-tag-not-working-in-google-chrome/16392782
-*/
+function testVegeta() {
+    tamagotchi.thisIsAtest()
+}

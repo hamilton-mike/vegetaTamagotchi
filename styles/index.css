@@ -1,0 +1,293 @@
+* {
+    font-family: 'Bubblegum Sans', cursive;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    line-height: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #EFE1CD;
+}
+
+.navbar {
+    background-color: #2955DC;
+    color: #EFE1CD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+#vegetagotchi {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    position: relative;
+    margin: 0;
+}
+
+.hero {
+    padding: 1em;
+}
+
+
+.container {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #EFE1CD
+}
+
+#logo, ul {
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+nav ul li {
+    display: inline;
+    padding: 1rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#rain {
+    display: none;
+}
+
+section {
+    padding: 3rem;
+}
+
+.btns {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    background-color: #A56106;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #EFE1CD;
+}
+
+.btns a {
+    text-decoration: none;
+}
+
+.btns:hover {
+    background-color: #2955DC;
+}
+
+#home, #rules, #levels, #vote {
+    font-size: 2rem;
+    color: 'black';
+}
+
+#home {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.about {
+    width: 50%;
+}
+
+#sliding {
+    animation: slide 5000ms infinite alternate;
+}
+
+@keyframes slide {
+	90% {transform: translate(12.5rem, 0px)}
+}
+
+iframe {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+#videoDiv iframe {
+    clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+}
+
+#tamagotchi {
+    display: flex;
+    justify-content: center;
+    border: 1rem solid #A56106;
+    box-shadow: 2px 2px 2px 2px rgba(41, 85, 220, 1);
+}
+
+.rule {
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(41, 85, 220, 1);
+}
+
+.contents {
+    color: #EFE1CD
+}
+
+.topic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2955DC;
+    color: #EFE1CD;
+    border-radius: 1rem;
+}
+
+.rule:hover {
+    background-color: #A56106;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    margin: 5rem;
+    padding: 1rem;
+}
+
+#levels {
+    border: 5rem solid #A56106;
+}
+
+#levels .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+}
+
+#name {
+    text-align: center;
+    background-color: #2955DC;
+    color: #EFE1CD;
+    border-radius: 10px;
+}
+
+.carousel-btns {
+    cursor: pointer;
+    text-align: center;
+}
+
+.carousel-btn {
+    display: inline-block;
+    background: rgba(165, 97, 6, 0.4);
+    padding: 1em;
+    border-radius: 50%;
+}
+
+.carousel-btn:hover {
+    background:rgba(165, 97, 6, 0.8)
+}
+
+.current-enemy {
+    margin-bottom: 1em;
+}
+
+.carousel img {
+    border-radius: 5rem;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #2955DC;
+    color: #EFE1CD;
+    padding: 3rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+footer {
+    width: 100%;
+}
+
+.footer ul {
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.footer li {
+    padding: 1em;
+}
+
+@media (max-width: 700px) {
+    #logo {
+        padding: 1rem;
+        width: 100%;
+        margin: 0;
+    }
+
+    #vegetagotchi {
+        display: none;
+    }
+
+    .about {
+        width: 100%;
+        font-size: 1.6rem;
+    }
+
+    ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+    }
+
+    ul li a:hover {
+        width: 50%;
+        background-color: #EFE1CD;
+        color: #2955DC;
+        text-decoration-line: none;
+    }
+
+    .navbar, section, .rule, footer {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .vegeta, .contents, .rule {
+        font-size: 1.5rem;
+    }
+
+    #levels {
+        border: 2rem solid #A56106;
+    }
+
+    .img {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    section {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #videoDiv {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    #sliding {
+        display: none;
+    }
+}

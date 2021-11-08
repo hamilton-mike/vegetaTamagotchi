@@ -5,53 +5,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles2.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/game.png">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Vegatagotchi</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="header"><span>Vegeta Tamagotchi<span></div>
-        <section class="large">
-            <div class="stats">
-                <div id="workout">
-                    WORKOUT: <br /><progress max="10" value="1"></progress>
-                </div>
-                <div id="hungry">
-                    HUNGRY: <br /><progress max="10" value="1"></progress>
-                </div>
-                <div id="bored">
-                    BOREDOM: <br /><progress max="10" value="1"></progress>
-                </div>
+    <header>
+        <nav class="navbar">
+            <div id="logo">
+                <img src="./img/game.png" alt="90s Toy">
+                <a href="./index.html#vegetagotchi">Vegatagotchi</a>
             </div>
+
+            <ul>
+                <li><a href="./index.html#home">Home</a></li>
+                <li><a href="./index.html#rules">How To Play</a></li>
+                <li><a href="./index.html#levels">Enemies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main id='board'>
+        <section class="level">Vegeta vs <span id="enemy">Andriod 19</span></section>
+
+        <section class="visual-aid">
             <div class="giphy">
-                <!-- <iframe src="https://giphy.com/embed/jaluhXZOhVNmw" width="480" height="321" frameBorder="0" class="giphy-embed"
-                    allowFullScreen></iframe> -->
-                <iframe src="https://giphy.com/embed/zO5p2acZUVWVO" width="480" height="291" frameBorder="0"
-                    class="giphy-embed" allowFullScreen></iframe>
+                <iframe src="" width="300" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            </div>
+            <div class="yt"></div>
+        </section>
+
+        <section class="game-controls">
+            <div class="progress-bar">
+                <div>
+                    WORKOUT: <br /><progress id="workout" max="10" value="1"></progress>
+                </div>
+                <div>
+                    HAPPY: <br /><progress id="happy" max="10" value="1"></progress>
+                </div>
+                <div >
+                    PRIDE: <br /><progress id="pride" max="10" value="1"></progress>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="controls">
+                    <div class="btns">
+                        <span class="btn workout-btn">Workout</span>
+                        <span class="btn happy-btn">Happy</span>
+                        <span class="btn pride-btn">Pride</span>
+                        <span class="btn big-bang-attack disabled">Special Move</span>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="content">
-            <iframe width="700" height="400"
-                src="https://www.youtube.com/embed/gBE8xj1ISIc?playlist=gBE8xj1ISIc&autoplay=1&loop=1&mute=1"
-                rameborder="0" allow="autoplay" allowfullscreen></iframe>
-        </section>
-        <section class="content">
-            <div class="text">
-                <h3>How to play</h3>
-                <p>Here you can click buttons to make Vegeta stay fit, happy, and fed <br />
-                    When the progress bar value go to zero you lose, Fill each bar to move onto the next level!</p>
-            </div>
-            <div class="btns">
-                <button>Workout</button>
-                <button>Eat</button>
-                <button>Bordeom</button>
-            </div>
-        </section>
-        <div class="footer">
-            <img src="https://img.icons8.com/color/96/000000/crunchyroll.png" />
+    </main>
+
+    <footer class="footer">
+
+        <div class="logo">
+            <a href="./index.html#vegetagotchi"><img src="./img/game.png" alt="logo"></a>
         </div>
-    </div>
+
+        <ul>
+            <li>Socials</li>
+            <li>Portfolio</li>
+            <li>
+                <a href="https://linkedin.com/in/mikehamdev">Linkedin</a>
+            </li>
+            <li>
+                <a href="https://github.com/hamilton-mike/vegetaTamagotchi">Github</a>
+            </li>
+        </ul>
+    </footer>
+    <script src="./src/app.js"></script>
 </body>
 
 </html>

@@ -44,4 +44,3 @@ Frontend - HTML, CSS, JS
 
 - Have a enemy pop you and user will have x amount of time before using attacks to defeat their opponent
 - Make the user wait x amount of time before clicking the workout, happy, eat buttons
-# vegetaTamagotchi

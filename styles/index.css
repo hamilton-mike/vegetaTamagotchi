@@ -248,6 +248,10 @@ footer {
         font-size: 1rem;
     }
 
+    .rule {
+        background-color: #A56106
+    }
+
     ul li a:hover {
         width: 50%;
         background-color: #EFE1CD;

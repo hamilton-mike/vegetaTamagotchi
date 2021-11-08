@@ -1,15 +1,13 @@
 // -- DOM Elements --
-const modal = document.querySelector('.modal');
-const ruleBtn = document.querySelector('#open')
-const closeBtn = document.querySelector("#close");
+const carouselBtns = document.querySelectorAll('.carousel-btn');
+console.log(carouselBtns);
+const enemy = document.querySelector('.current-enemy');
+console.log(enemy);
 
-// -- Functions --
-const open = () => {
-    modal.classList.add('show')
-};
-const close = () => {
-    modal.classList.remove('show')
-};
-// -- Event Listeners
-ruleBtn.addEventListener('click', open);
-closeBtn.addEventListener('click', close);
+const enemies = ['img/saibamen.jpg', 'img/android19.jpg', '/img/goku.jpg']
+
+carouselBtns.forEach((image, id) => {
+    image.addEventListener('click', () => {
+        enemy.src = enemies[id]
+    })
+})

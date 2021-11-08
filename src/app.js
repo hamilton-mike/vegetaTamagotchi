@@ -11,21 +11,13 @@ const happyBtn = document.querySelector('.happy-btn')
 const prideBtn = document.querySelector('.pride-btn')
 const attackBtn = document.querySelector('.big-bang-attack');
 
-function clickFunction() {
-    workoutBtn.addEventListener('click', trianVegeta);
-    workoutBtn.addEventListener('click', checkStatus);
-    happyBtn.addEventListener('click', happyVegeta);
-    happyBtn.addEventListener('click', checkStatus);
-    prideBtn.addEventListener('click', feedVegeta);
-    prideBtn.addEventListener('click', checkStatus);
-}
 clickFunction()
 
-const enemies = ['Saibamen', 'Andriod 19', 'Goku'];
+const enemies = ['Saibamen', 'Android 19', 'Goku'];
 // --- Videos ---
 const videos = {
     saibamen: '<iframe width="560" height="315" src="https://www.youtube.com/embed/gBE8xj1ISIc?playlist=gBE8xj1ISIc&autoplay=1&loop=1&mute=1" frameborder="0" allow="autoplay" allowfullscreen></iframe >',
-    andriod19: '<iframe width="560" height="315" src="https://www.youtube.com/embed/yKYP_EQ_liA?playlist=yKYP_EQ_liA&autoplay=1&loop=1&mute=1&end=216" frameborder="0" allow="autoplay" allowfullscreen></iframe>',
+    android19: '<iframe width="560" height="315" src="https://www.youtube.com/embed/yKYP_EQ_liA?playlist=yKYP_EQ_liA&autoplay=1&loop=1&mute=1&end=216" frameborder="0" allow="autoplay" allowfullscreen></iframe>',
     goku: '<iframe width="560" height="315" src="https://www.youtube.com/embed/oV00HVtdX9w?playlist=oV00HVtdX9w&autoplay=1&loop=1&mute=1" frameborder="0" allow="autoplay" allowfullscreen></iframe>'
 };
 // --- Gifs ---
@@ -45,7 +37,7 @@ let soundBoards = [
 // --- Global Variables ---
 let randomNum;
 let audio;
-let time = 100000;
+let time = 13000;
 // --- Vegeta Class ---
 class Vegeta {
     constructor(pride, happy, workingOut, isSaiyan, isGod ) {
@@ -82,7 +74,7 @@ class Vegeta {
     adultVegeta() {
         span.innerHTML = enemies[1]
 
-        videoDiv.innerHTML = videos["andriod19"];
+        videoDiv.innerHTML = videos["android19"];
 
         this.workingOut = 1;
         this.happy = 1;
@@ -107,7 +99,7 @@ class Vegeta {
         happyProgressBar.value = this.happy;
         prideProgressBar.value = this.pride;
 
-        time = 6000
+        time = 7000
         this.isGod = true;
         setTimeout(() => checkStatus())
     }
@@ -121,6 +113,7 @@ class Vegeta {
         clearInterval(intervalId);
         document.querySelector('.progress-bar').innerHTML = ''
         document.querySelector('.content').innerHTML = 'You Won!'
+        setTimeout(() => princeOfAllSaiyans(), 1000)
     }
 }
 // --- Init Tamagotchi ---
@@ -175,30 +168,45 @@ function attackVegeta() {
    attackBtn.style.backgroundColor = '#2955DC';
    attackBtn.style.cursor = 'pointer';
 }
+function disabledBtns() {
+    workoutBtn.style.backgroundColor = 'red';
+    happyBtn.style.backgroundColor = 'red';
+    prideBtn.style.backgroundColor = 'red';
+    attackBtn.style.backgroundColor = 'red';
+}
+function playBtns() {
+   workoutBtn.style = 'btn';
+    happyBtn.style = 'btn';
+    prideBtn.style = 'btn';
+}
 function checkStatus() {
     if (tamagotchi.workingOut === 0 || tamagotchi.happy === 0 || tamagotchi.pride === 0) {
         tamagotchi.gameIsOver()
     }
     if ((!tamagotchi.isSaiyan) && tamagotchi.pride === 10 && tamagotchi.happy === 10 && tamagotchi.workingOut === 10) {
-        console.log('from kid to adult')
         tamagotchi.adultVegeta();
     }
     if ((!tamagotchi.isGod) && tamagotchi.isSaiyan && tamagotchi.pride === 10 && tamagotchi.happy === 10 && tamagotchi.workingOut === 10) {
-        console.log('adult to god');
         tamagotchi.godVegeta();
-        console.log(tamagotchi);
     }
     if (tamagotchi.isGod && tamagotchi.isSaiyan && tamagotchi.pride === 10 && tamagotchi.happy === 10 && tamagotchi.workingOut === 10) {
-        console.log('winner');
         tamagotchi.winner();
     }
     if (tamagotchi.pride === 10) {
         attackVegeta()
     }
-    console.log('check status');
-
+}
+function clickFunction() {
+    playBtns()
+    workoutBtn.addEventListener('click', trianVegeta);
+    workoutBtn.addEventListener('click', checkStatus);
+    happyBtn.addEventListener('click', happyVegeta);
+    happyBtn.addEventListener('click', checkStatus);
+    prideBtn.addEventListener('click', feedVegeta);
+    prideBtn.addEventListener('click', checkStatus);
 }
 function removeEvent() {
+    disabledBtns()
     workoutBtn.removeEventListener('click', trianVegeta);
     workoutBtn.removeEventListener('click', checkStatus);
     happyBtn.removeEventListener('click', happyVegeta);

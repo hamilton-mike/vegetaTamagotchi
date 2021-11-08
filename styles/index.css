@@ -176,6 +176,28 @@ iframe {
     border-radius: 10px;
 }
 
+.carousel-btns {
+    cursor: pointer;
+    text-align: center;
+}
+
+.carousel-btn {
+    display: inline-block;
+    background: rgba(165, 97, 6, 0.4);
+    padding: 1em;
+    border-radius: 50%;
+}
+
+.carousel-btn:hover {
+    background:rgba(165, 97, 6, 0.8)
+}
+
+.current-enemy {
+    margin-bottom: 1em;
+}
+.carousel img {
+    border-radius: 5rem;
+}
 footer {
     display: flex;
     justify-content: center;

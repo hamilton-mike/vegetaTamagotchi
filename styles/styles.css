@@ -83,13 +83,17 @@ main {
     padding: 0 5em;
 }
 
+.game-over {
+    border: none;
+}
+
 .btns {
     text-align: center;
     font-size: 2rem;
     padding: 1em;
 }
 
-.btn {
+.btn, .big-bang-attack {
     justify-content: space-evenly;
     cursor: pointer;
     padding: 0.25em 0.5em;
@@ -97,7 +101,7 @@ main {
     border-radius: 1em;
 }
 
-.btn:hover {
+.btn:hover, .big-bang-attack:hover {
     background-color: #2955DC;
     color: #EFE1CD;
 }
@@ -111,6 +115,6 @@ main {
     background-color: red;
 }
 
-.game-controls {
-    font-size: 1.7rem;
+#board {
+    font-size: 1.4rem;
 }

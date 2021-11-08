@@ -102,11 +102,11 @@ section {
 }
 
 #sliding {
-    animation: slide 10s infinite;
+    animation: slide 5000ms infinite alternate;
 }
 
 @keyframes slide {
-	90% {transform: translate(500px, 0px)}
+	90% {transform: translate(12.5rem, 0px)}
 }
 
 iframe {

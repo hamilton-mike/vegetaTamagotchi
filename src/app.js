@@ -37,7 +37,7 @@ let soundBoards = [
 // --- Global Variables ---
 let randomNum;
 let audio;
-let time = 13000;
+let time = 913000;
 // --- Vegeta Class ---
 class Vegeta {
     constructor(pride, happy, workingOut, isSaiyan, isGod ) {

@@ -1,7 +1,7 @@
-// --- DOM Elements ---
 const videoDiv = document.querySelector('.yt');
 const iframe = document.querySelector('.giphy iframe');
 const span = document.querySelector("#enemy");
+
 const workoutProgressBar = document.querySelector('#workout');
 const happyProgressBar = document.querySelector('#happy');
 const prideProgressBar = document.querySelector('#pride');
@@ -10,8 +10,6 @@ const workoutBtn = document.querySelector('.workout-btn');
 const happyBtn = document.querySelector('.happy-btn')
 const prideBtn = document.querySelector('.pride-btn')
 const attackBtn = document.querySelector('.big-bang-attack');
-
-clickFunction()
 
 const enemies = ['Saibamen', 'Android 19', 'Goku'];
 
@@ -38,6 +36,7 @@ let randomNum;
 let audio;
 let time = 13000;
 
+
 class Vegeta {
     constructor(pride, happy, workingOut, isSaiyan, isGod ) {
         this.pride = pride;
@@ -50,13 +49,42 @@ class Vegeta {
         span.innerHTML = enemies[0]
         videoDiv.innerHTML = videos["saibamen"];
         iframe.src = giphy["default"];
+        checkStatus()
     }
     attack() {
+        this.prideResult()
+
         iframe.src = giphy["bba"];
-        bigBangAttack()
+        prideProgressBar.value = this.pride;
+
+        bigBangAttack();
+        removeEvent();
+        checkStatus();
         setTimeout(() => {
             iframe.src = giphy["default"]
-        }, 8000)
+            clickFunction()
+        }, 11000)
+    }
+    prideResult() {
+        if (this.happy < 9 || this.workingOut < 9) {
+            this.happy += 2
+            this.workingOut += 2
+        } else {
+            this.happy += 1
+            this.workingOut += 1
+        }
+
+        if (this.happy > 10) {
+            this.happy = 10;
+        } else if (this.workingOut > 10) {
+            this.workingOut = 10;
+        }
+
+        this.pride = 2
+
+        prideProgressBar.value = this.pride;
+        workoutProgressBar.value = this.workingOut;
+        happyProgressBar.value = this.happy;
     }
     sayianPride() {
         this.pride++
@@ -84,7 +112,6 @@ class Vegeta {
         prideProgressBar.value = this.pride;
 
         this.isSaiyan = true;
-        time = 10000;
     }
     godVegeta() {
         span.innerHTML = enemies[2]
@@ -98,7 +125,6 @@ class Vegeta {
         happyProgressBar.value = this.happy;
         prideProgressBar.value = this.pride;
 
-        time = 7000
         this.isGod = true;
         setTimeout(() => checkStatus())
     }
@@ -169,10 +195,18 @@ function happyVegeta() {
     }
 }
 
-function attackVegeta() {
+function attackVegetaStyle() {
    attackBtn.style.color = '#EFE1CD';
    attackBtn.style.backgroundColor = '#2955DC';
    attackBtn.style.cursor = 'pointer';
+}
+
+function attackVegeta() {
+    clearInterval(intervalId)
+    tamagotchi.attack()
+    setTimeout(() => {
+        intervalId = setInterval(vegetaInsult, time);
+    }, 7000)
 }
 
 function disabledBtns() {
@@ -183,7 +217,7 @@ function disabledBtns() {
 }
 
 function playBtns() {
-   workoutBtn.style = 'btn';
+    workoutBtn.style = 'btn';
     happyBtn.style = 'btn';
     prideBtn.style = 'btn';
 }
@@ -193,16 +227,22 @@ function checkStatus() {
         tamagotchi.gameIsOver()
     }
     if ((!tamagotchi.isSaiyan) && tamagotchi.pride === 10 && tamagotchi.happy === 10 && tamagotchi.workingOut === 10) {
+        time = 9000;
         tamagotchi.adultVegeta();
     }
     if ((!tamagotchi.isGod) && tamagotchi.isSaiyan && tamagotchi.pride === 10 && tamagotchi.happy === 10 && tamagotchi.workingOut === 10) {
+        time = 5000
         tamagotchi.godVegeta();
     }
     if (tamagotchi.isGod && tamagotchi.isSaiyan && tamagotchi.pride === 10 && tamagotchi.happy === 10 && tamagotchi.workingOut === 10) {
         tamagotchi.winner();
     }
     if (tamagotchi.pride === 10) {
-        attackVegeta()
+        attackVegetaStyle()
+        attackBtn.addEventListener('click', attackVegeta)
+    } else {
+        attackBtn.removeEventListener('click', attackVegeta)
+        attackBtn.style.backgroundColor = 'red';
     }
 }
 
@@ -226,10 +266,5 @@ function removeEvent() {
     prideBtn.removeEventListener('click', checkStatus);
 }
 
-attackBtn.addEventListener('click', () => {
-    clearInterval(intervalId)
-    tamagotchi.attack()
-    setTimeout(() => {
-        intervalId = setInterval(vegetaInsult, time);
-    }, 9000)
-})
+clickFunction()
+checkStatus()

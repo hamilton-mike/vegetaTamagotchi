@@ -22,8 +22,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    font-size: 1rem;
+    padding: 2em;
 }
+
 #vegetagotchi {
     display: flex;
     align-items: center;
@@ -283,6 +285,10 @@ footer {
         width: 100%;
         flex-direction: column;
         align-items: center;
+    }
+
+    ul {
+        display: inline;
     }
 
     #videoDiv {

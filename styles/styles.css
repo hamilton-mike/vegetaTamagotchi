@@ -15,16 +15,16 @@ body {
 
 .navbar {
     background-color: #2955DC;
-    display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    font-size: 2rem;
-    margin-bottom: 1em;
+    font-size: 1rem;
+    padding: 2em;
+    display: flex;
 }
 
-nav ul li {
+.navbar ul li {
     display: inline;
-    padding: 2em;
+    margin-left: 1em;
 }
 
 footer {

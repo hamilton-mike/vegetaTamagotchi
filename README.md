@@ -13,6 +13,15 @@ This project was made using\
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 
+## Live Photos
+
+### Home Page
+![Hero](img/home-page.png)
+
+### Game Board
+![Game](img/rd-one.png)
+![Game](img/rd-two.png)
+
 ## Code Snippet
 
 ### Vegeta Class
@@ -122,6 +131,6 @@ class Vegeta {
     }
 }
 ```
-
-
-
+### Site Map
+* [Home](https://vegetatamagotchi.netlify.app/)
+* [Play](https://vegetatamagotchi.netlify.app/project2.0.html#board)
